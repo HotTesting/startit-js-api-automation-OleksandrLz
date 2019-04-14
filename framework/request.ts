@@ -37,7 +37,7 @@ export class Request<T = any> {
      * POST, GET supported
      * @param method method name string
      */
-    public method(method: "POST" | "GET"): Request {
+    public method(method: "POST" | "GET" | "DELETE"): Request {
         this.options.method = method;
         return this;
     }
