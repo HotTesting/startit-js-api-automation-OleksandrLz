@@ -105,7 +105,7 @@ describe("User", function() {
       "username"
     );
 
-    expect(typeof userList.body[0], userList.body[0]).to.not.include.keys(
+    expect(userList.body[0], userList.body[0]).to.not.include.keys(
       "token"
     );
   });
