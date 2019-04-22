@@ -1,7 +1,7 @@
 {
   "name": "startit-js-api-automation",
   "version": "1.0.0",
-  "description": "StartIT demo project for students",
+  "description": "Project for testing Wekan API",
   "scripts": {
     "test": "mocha --opts mocha.opts"
   },
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/Xotabu4/demo.git"
   },
-  "author": "Oleksandr Khotemskyi <xotabu4@gmail.com>",
+  "author": "Oleksandr Lazarenko <4oleksandrlz@gmail.com>",
   "license": "MIT",
   "types": "index.d.ts",
   "dependencies": {
@@ -20,6 +20,7 @@
     "@types/request-promise-native": "*",
     "@types/faker": "*",
     "@types/mongoose": "*",
+    "@types/chai-json-schema": "*",
     "chai": "^4.2.0",
     "mocha": "^6.0.2",
     "request": "^2.88.0",

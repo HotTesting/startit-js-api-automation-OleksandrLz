@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "required": [
+       "_id",
+       "defaultSwimlaneId"
+    ],
+    "properties": {
+       "_id": {
+          "type": "string",
+          "default": ""
+       },
+       "defaultSwimlaneId": {
+          "type": "string",
+          "default": ""
+       }
+    }
+ }

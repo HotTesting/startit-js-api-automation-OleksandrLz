@@ -1,0 +1,27 @@
+{
+    "type": "array",
+    "required": [
+       "_id",
+       "title",
+       "description",
+       "listId"
+    ],
+    "properties": {
+       "_id": {
+          "type": "string",
+          "default": ""
+       },
+       "title": {
+          "type": "string",
+          "default": ""
+       },
+       "description": {
+          "type": "string",
+          "default": ""
+       },
+       "listId": {
+          "type": "string",
+          "default": ""
+       }
+    }
+ }

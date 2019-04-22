@@ -2,8 +2,14 @@ import * as faker from "faker";
 import * as chai from "chai";
 import { Users } from "../../framework2/service/controllers/users_controller";
 import { Request } from "../../framework/request";
-// chai.use(require("chai-json-schema-ajv"));
+chai.use(require("chai-json-schema-ajv"));
+
 const expect = chai.expect;
+
+const boardSchema = require('../../raml/boardSchema.json');
+const swimlaneSchema = require('../../raml/swimlaneSchema.json');
+const cardSchema = require('../../raml/cardSchema.json');
+const cardsDetailsSchema = require('../../raml/cardsDetailsSchema.json');
 
 
 describe("Board", function () {
@@ -28,9 +34,7 @@ describe("Board", function () {
             })
             .send();
 
-
-        expect(respBoard.body._id).not.to.be.null;
-        expect(respBoard.body.defaultSwimlaneId).not.to.be.null;
+        expect(respBoard.body).to.be.jsonSchema(boardSchema);
     });
 
 
@@ -68,10 +72,7 @@ describe("Board", function () {
             })
             .send();
 
-        expect(respSwimlane.body._id).not.to.be.null;
-        expect(respSwimlane.body, JSON.stringify(respSwimlane.body))
-            .to.be.an("object")
-            .that.has.all.keys("_id");
+        expect(respSwimlane.body).to.be.jsonSchema(swimlaneSchema);
     });
 
     it("Creating new card in list board swimlane should be successful", async function () {
@@ -121,13 +122,10 @@ describe("Board", function () {
             })
             .send();
 
-        expect(respCard.body._id).not.to.be.null;
-        expect(respCard.body, JSON.stringify(respCard.body))
-            .to.be.an("object")
-            .that.has.all.keys("_id");
+        expect(respSwimlane.body).to.be.jsonSchema(cardSchema);
     });
 
-    it.only("Retrieve cards by swimlane id should be successful", async function () {
+    it("Retrieve cards by swimlane id should be successful", async function () {
 
         const loggedInModel = await new Users().login(
             "sasha.lz@ukr.net",
@@ -182,7 +180,6 @@ describe("Board", function () {
             .auth(loggedInModel.token)
             .send();
 
-        expect(cardsDetails.body).not.to.be.null;
-        expect(cardsDetails.body, JSON.stringify(cardsDetails.body)).to.be.an("array");
+        expect(cardsDetails.body).to.be.jsonSchema(cardsDetailsSchema);
     });
 });
